@@ -10,6 +10,14 @@ public class StringTest {
         final String input = "1,2";
 
         String[] split = input.split(",");
-        assertThat(split).contains("1", "2");
+        assertThat(split).containsExactly("1", "2");
+    }
+
+    @Test
+    public void test1(){
+        final String input = "1";
+
+        String[] split = input.split(",");
+        assertThat(split).containsExactly("1");
     }
 }
