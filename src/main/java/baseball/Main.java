@@ -8,10 +8,11 @@ public class Main {
         System.out.println("Play Ball!!");
 
         InputScanner scanner = new InputConsoleTypeScanner();
-        String input = scanner.inputBallNumber3Length();
-
-        String ballCount = BallCountChecker.check(input, "713");
-
-        System.out.println(ballCount);
+        String ballCount;
+        do{
+            String input = scanner.inputBallNumber3Length();
+            ballCount = BallCountChecker.check(input, "713");
+            System.out.println(ballCount);
+        } while(!ballCount.equals("3S0B0O"));
     }
 }
