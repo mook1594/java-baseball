@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.security.InvalidParameterException;
 
@@ -27,19 +28,9 @@ public class BallCountCheckerTest {
         assertThat(result).isEqualTo(expected);
     }
 
-    @Test
-    public void inputLengthValid(){
-        final String input = "1";
-
-        assertThatThrownBy(() -> {
-            String result = BallCountChecker.check(input, this.answer);
-        }).isInstanceOf(InvalidParameterException.class);
-    }
-
-    @Test
-    public void inputTypeValid(){
-        final String input = "abc";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "", "a", "abc", "ㄱㄴㄷ"})
+    public void inputLengthValid(String input){
         assertThatThrownBy(() -> {
             String result = BallCountChecker.check(input, this.answer);
         }).isInstanceOf(InvalidParameterException.class);
