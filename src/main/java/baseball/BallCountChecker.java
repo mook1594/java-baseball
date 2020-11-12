@@ -10,7 +10,7 @@ public class BallCountChecker {
         int ball = 0;
         int out = 0;
 
-        if(input.length() != 3 || !isNumeric(input)){
+        if(input.length() != 3 || !ValidUtils.isNumeric(input)){
             throw new InvalidParameterException();
         }
 
@@ -46,14 +46,5 @@ public class BallCountChecker {
             return true;
         }
         return false;
-    }
-
-    private static boolean isNumeric(String string) {
-        try{
-            Integer.parseInt(string);
-            return true;
-        }catch (Exception ex){
-            return false;
-        }
     }
 }
