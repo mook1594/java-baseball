@@ -29,7 +29,7 @@ public class InputConsoleTypeScanner implements InputScanner {
         String input;
         System.out.println(INPUT_GAME_END_LABEL);
         do{
-            System.out.println(INPUT_GAME_END_LABEL);
+            System.out.println(INPUT_GAME_RESTART_LABEL);
             input = sc.next();
         } while(!ValidUtils.is1Or2(input));
 
