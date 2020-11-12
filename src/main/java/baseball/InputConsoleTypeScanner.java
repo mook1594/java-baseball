@@ -14,8 +14,7 @@ public class InputConsoleTypeScanner implements InputScanner {
 
     @Override
     public String inputBallNumber3Length() {
-        System.out.print(INPUT_BALL_NUMBER_LABEL);
-        String input = sc.next();
+        String input;
         do{
             System.out.print(INPUT_BALL_NUMBER_LABEL);
             input = sc.next();
@@ -26,8 +25,11 @@ public class InputConsoleTypeScanner implements InputScanner {
 
     @Override
     public String inputEndGame() {
-        System.out.println(INPUT_GAME_END_LABEL);
-        String input = sc.next();
+        String input;
+        do{
+            System.out.println(INPUT_GAME_END_LABEL);
+            input = sc.next();
+        } while(!ValidUtils.is1Or2(input));
 
         return input;
     }
