@@ -18,4 +18,11 @@ public class ValidUtils {
         }
         return false;
     }
+
+    public static boolean isLength3(String string) {
+        if(string.length() == 3){
+            return true;
+        }
+        return false;
+    }
 }

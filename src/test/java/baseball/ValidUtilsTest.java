@@ -15,8 +15,16 @@ public class ValidUtilsTest {
     }
 
     @ParameterizedTest
+    @CsvSource(value = {"123:true", "abc:true", ":false", "1:false"}, delimiter = ':')
+    public void isLength3(final String input, final boolean expected) {
+        assertThat(ValidUtils.isLength3(input)).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
     @CsvSource(value = {"1:true", "2:true", "12:false", ":false"}, delimiter = ':')
     public void is1or2(final String input, final boolean expected){
         assertThat(ValidUtils.is1Or2(input)).isEqualTo(expected);
     }
+
+
 }
