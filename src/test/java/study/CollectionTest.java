@@ -1,7 +1,10 @@
 package study;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +24,15 @@ public class CollectionTest {
     }
 
     @Test
+    @DisplayName("size() 테스트")
     public void test1(){
-        assertThat(numbers.size()).isEqualTo(4);
+        assertThat(numbers.size()).isEqualTo(3);
+    }
+
+    @DisplayName("contains() 테스트")
+    @ParameterizedTest(name = "input")
+    @ValueSource(ints = {1, 2, 3})
+    public void test2(int input){
+        assertThat(numbers.contains(input)).isTrue();
     }
 }
