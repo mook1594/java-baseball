@@ -16,7 +16,7 @@ public class BallCountCheckerTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"123:1S1B", "145:1B", "671:2B", "216:1S", "713:3S"}, delimiter = ':')
+    @CsvSource(value = {"123:1S1B1O", "145:0S1B2O", "671:0S2B1O", "216:1S0B2O", "713:3S0B0O"}, delimiter = ':')
     public void checkNumber(final String number, final String expected){
         String result = BallCountChecker.check(number, this.answer);
 
