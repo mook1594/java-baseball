@@ -15,7 +15,7 @@ public class Main {
             do{
                 String input = scanner.inputBallNumber3Length();
                 ballCount = BallCountChecker.check(input, answer);
-                System.out.println(ballCount);
+                BallCountPrinter.print(ballCount);
             } while(!ballCount.equals("3S0B0O"));
 
             endInput = scanner.inputEndGame();

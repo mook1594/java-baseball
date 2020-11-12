@@ -15,4 +15,8 @@ public class BallCountPrinter {
     private static String numberText(final char number, final String ballType){
         return number == '0' ? EMPTY_STRING : number + ballType + " ";
     }
+
+    public static void print(String code){
+        System.out.println(makeText(code));
+    }
 }
