@@ -10,6 +10,8 @@ public class Main {
         InputScanner scanner = new InputConsoleTypeScanner();
         String input = scanner.inputBallNumber3Length();
 
-        System.out.println(input);
+        String ballCount = BallCountChecker.check(input, "713");
+
+        System.out.println(ballCount);
     }
 }
