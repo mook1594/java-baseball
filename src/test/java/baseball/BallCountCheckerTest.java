@@ -1,10 +1,14 @@
 package baseball;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.security.InvalidParameterException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class BallCountCheckerTest {
 
@@ -21,5 +25,23 @@ public class BallCountCheckerTest {
         String result = BallCountChecker.check(number, this.answer);
 
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void inputLengthValid(){
+        final String input = "1";
+
+        assertThatThrownBy(() -> {
+            String result = BallCountChecker.check(input, this.answer);
+        }).isInstanceOf(InvalidParameterException.class);
+    }
+
+    @Test
+    public void inputTypeValid(){
+        final String input = "abc";
+
+        assertThatThrownBy(() -> {
+            String result = BallCountChecker.check(input, this.answer);
+        }).isInstanceOf(InvalidParameterException.class);
     }
 }
