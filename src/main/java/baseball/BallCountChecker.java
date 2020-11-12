@@ -1,12 +1,18 @@
 package baseball;
 
+import java.security.InvalidParameterException;
+
 public class BallCountChecker {
     private static final int BALL_COUNT_SIZE = 3;
 
-    public static String check(String input, String answer) {
+    public static String check(final String input, final String answer) {
         int strike = 0;
         int ball = 0;
         int out = 0;
+
+        if(input.length() != 3 || !isNumeric(input)){
+            throw new InvalidParameterException();
+        }
 
         for(int i = 0; i < BALL_COUNT_SIZE; i++){
             if(isStrike(input.charAt(i), answer.charAt(i))){
@@ -40,5 +46,14 @@ public class BallCountChecker {
             return true;
         }
         return false;
+    }
+
+    private static boolean isNumeric(String string) {
+        try{
+            Integer.parseInt(string);
+            return true;
+        }catch (Exception ex){
+            return false;
+        }
     }
 }
